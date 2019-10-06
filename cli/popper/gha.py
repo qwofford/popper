@@ -11,7 +11,9 @@ from copy import deepcopy
 from builtins import dict
 from distutils.dir_util import copy_tree
 from distutils.spawn import find_executable
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from concurrent.futures import (ProcessPoolExecutor,
+                                ThreadPoolExecutor,
+                                as_completed)
 from subprocess import CalledProcessError, PIPE, Popen, STDOUT
 
 import yaml
@@ -864,7 +866,8 @@ class VagrantRunner(DockerRunner):
         if not os.path.exists(vagrant_box_path):
             os.makedirs(vagrant_box_path)
         vagrantfile_content = pu.vagrantfile_content.format(
-            os.environ['HOME'], os.environ['HOME'], self.workspace, self.workspace)
+            os.environ['HOME'], os.environ['HOME'],
+            self.workspace, self.workspace)
         pu.write_file(os.path.join(
             vagrant_box_path, 'Vagrantfile'), vagrantfile_content)
 
