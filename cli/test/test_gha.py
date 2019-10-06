@@ -775,6 +775,7 @@ class TestVagrantRunner(unittest.TestCase):
         """.format(os.environ['HOME'], os.environ['HOME'])
         f = open('/tmp/test_folder/test_vm/Vagrantfile')
         content = f.readlines()
+        f.close()
         for line in content:
             self.assertEqual(line in required_content, True)
 
