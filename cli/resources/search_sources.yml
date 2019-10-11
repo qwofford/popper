@@ -1,3 +1,6 @@
+- popperized/git
+- popperized/deb
+- popperized/terraform
 - popperized/ansible
 - popperized/spack
 - popperized/cmake
