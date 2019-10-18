@@ -60,7 +60,7 @@ class TestScm(unittest.TestCase):
         url = scm.get_remote_url()
         if self.with_git:
             self.assertEqual(
-                url, 'https://github.com/cplee/github-actions-demo')
+                url, 'https://github.com/JayjeetAtGithub/github-actions-demo')
         else:
             self.assertEqual(url, '')
 
@@ -126,7 +126,7 @@ class TestScm(unittest.TestCase):
         self.assertEqual(repo.active_branch.name, 'master')
 
     def test_parse(self):
-        test_url = "ssh://git@github.com:cplee/github-actions-demo.git"
+        test_url = "ssh://git@github.com:JayjeetAtGithub/github-actions-demo.git"
         self.assertRaises(SystemExit, scm.parse, test_url)
         test_url = "https://github.com/cplee@master"
         self.assertRaises(SystemExit, scm.parse, test_url)
@@ -134,7 +134,7 @@ class TestScm(unittest.TestCase):
         self.assertRaises(SystemExit, scm.parse, test_url)
         test_url = "@master"
         self.assertRaises(SystemExit, scm.parse, test_url)
-        test_url = "http://gitlab.com/cplee/github-actions-demo.git"
+        test_url = "http://gitlab.com/JayjeetAtGithub/github-actions-demo.git"
         parts = scm.parse(test_url)
         self.assertTupleEqual(parts, (
             'http://gitlab.com',
@@ -142,7 +142,7 @@ class TestScm(unittest.TestCase):
             'cplee',
             'github-actions-demo',
             '', None))
-        test_url = "https://github.com/cplee/github-actions-demo@master"
+        test_url = "https://github.com/JayjeetAtGithub/github-actions-demo@master"
         parts = scm.parse(test_url)
         self.assertTupleEqual(parts, (
             'https://github.com',
@@ -151,7 +151,7 @@ class TestScm(unittest.TestCase):
             'github-actions-demo',
             '',
             'master'))
-        test_url = "github.com/cplee/github-actions-demo"
+        test_url = "github.com/JayjeetAtGithub/github-actions-demo"
         parts = scm.parse(test_url)
         self.assertTupleEqual(parts, (
             'https://github.com',
@@ -160,7 +160,7 @@ class TestScm(unittest.TestCase):
             'github-actions-demo',
             '',
             None))
-        test_url = "cplee/github-actions-demo/path/to/action@develop"
+        test_url = "JayjeetAtGithub/github-actions-demo/path/to/action@develop"
         parts = scm.parse(test_url)
         self.assertTupleEqual(parts, (
             'https://github.com',

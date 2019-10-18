@@ -4,7 +4,7 @@ set -ex
 source ./common
 
 delete_dir /tmp/gha-demo
-git clone https://github.com/cplee/github-actions-demo /tmp/gha-demo
+git clone https://github.com/JayjeetAtGithub/github-actions-demo /tmp/gha-demo
 pushd /tmp/gha-demo
 PHONY_SECRET=phony popper run --debug --runtime "$RUNTIME"
 popd
