@@ -102,9 +102,9 @@
 - actions/licensed/ruby
 - actions/labeler
 - actions/vulnerability-scan
-- actions/docker/tag
-- actions/docker/cli
-- actions/docker/login
+- popperized/docker/tag
+- popperized/docker/cli
+- popperized/docker/login
 - magneticio/vamp-github-actions/cli
 - magneticio/vamp-github-actions/login
 - magneticio/vamp-github-actions/workflow

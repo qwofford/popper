@@ -168,7 +168,7 @@ workflow "test bindings" {
   ]
 }
 action "did" {
-  uses = "actions/docker/cli@master"
+  uses = "popperized/docker/cli@master"
   args = "build -t helloworld docker-helloworld"
 }
 action "ws" {
