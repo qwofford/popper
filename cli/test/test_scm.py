@@ -26,7 +26,7 @@ class TestScm(unittest.TestCase):
         os.chdir('/tmp/test_folder')
         scm.clone(
             'https://github.com',
-            'cplee',
+            'JayjeetAtGithub',
             'github-actions-demo',
             os.path.join(os.getcwd(), 'github-actions-demo')
         )
@@ -52,7 +52,7 @@ class TestScm(unittest.TestCase):
     def test_get_user(self):
         user = scm.get_user()
         if self.with_git:
-            self.assertEqual(user, 'cplee')
+            self.assertEqual(user, 'JayjeetAtGithub')
         else:
             self.assertEqual(user, '')
 
@@ -128,7 +128,7 @@ class TestScm(unittest.TestCase):
     def test_parse(self):
         test_url = "ssh://git@github.com:JayjeetAtGithub/github-actions-demo.git"
         self.assertRaises(SystemExit, scm.parse, test_url)
-        test_url = "https://github.com/cplee@master"
+        test_url = "https://github.com/JayjeetAtGithub@master"
         self.assertRaises(SystemExit, scm.parse, test_url)
         test_url = "github.com"
         self.assertRaises(SystemExit, scm.parse, test_url)
@@ -139,7 +139,7 @@ class TestScm(unittest.TestCase):
         self.assertTupleEqual(parts, (
             'http://gitlab.com',
             'gitlab.com',
-            'cplee',
+            'JayjeetAtGithub',
             'github-actions-demo',
             '', None))
         test_url = "https://github.com/JayjeetAtGithub/github-actions-demo@master"
@@ -147,7 +147,7 @@ class TestScm(unittest.TestCase):
         self.assertTupleEqual(parts, (
             'https://github.com',
             'github.com',
-            'cplee',
+            'JayjeetAtGithub',
             'github-actions-demo',
             '',
             'master'))
@@ -156,7 +156,7 @@ class TestScm(unittest.TestCase):
         self.assertTupleEqual(parts, (
             'https://github.com',
             'github.com',
-            'cplee',
+            'JayjeetAtGithub',
             'github-actions-demo',
             '',
             None))
@@ -165,7 +165,7 @@ class TestScm(unittest.TestCase):
         self.assertTupleEqual(parts, (
             'https://github.com',
             'github.com',
-            'cplee',
+            'JayjeetAtGithub',
             'github-actions-demo',
             'path/to/action',
             'develop'))
