@@ -172,11 +172,11 @@ action "did" {
   args = "build -t helloworld docker-helloworld"
 }
 action "ws" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "cat \$GITHUB_WORKSPACE/popperfile"]
 }
 action "home" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "cat \$HOME/popperfile"]
 }
 EOF
@@ -191,11 +191,11 @@ workflow "test bindings" {
   ]
 }
 action "ws" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "cat \$GITHUB_WORKSPACE/popperfile"]
 }
 action "home" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "cat \$HOME/popperfile"]
 }
 EOF
@@ -321,7 +321,7 @@ action "test" {
 }
 
 action "cleanup" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "echo Cleaning up..."]
 }
 EOF
@@ -339,14 +339,14 @@ action "test1" {
 }
 
 action "test2" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "echo Cleaning up..."]
 }
 EOF
 
 popper run --runtime "$RUNTIME" > output
 grep -q "https://github.com/actions/npm@master" output
-! grep -q "https://github.com/actions/bin@master" output
+! grep -q "https://github.com/popperized/bin@master" output
 
 cat <<EOF > main.workflow
 workflow "sample" {
@@ -359,14 +359,14 @@ action "test1" {
 }
 
 action "test2" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "echo Cleaning up..."]
 }
 EOF
 
 popper run --skip test1 --runtime "$RUNTIME" > output
 ! grep -q "https://github.com/actions/npm@master" output
-grep -q "https://github.com/actions/bin@master" output
+grep -q "https://github.com/popperized/bin@master" output
 
 # Test environment variables
 cat <<EOF > main.workflow
@@ -375,7 +375,7 @@ workflow "foo" {
 }
 
 action "show workspace in container" {
-  uses = "actions/bin/sh@master"
+  uses = "popperized/bin/sh@master"
   runs = ["sh", "-c", "echo \$GITHUB_WORKSPACE"]
 }
 
