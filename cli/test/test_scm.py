@@ -74,7 +74,7 @@ class TestScm(unittest.TestCase):
     def test_get_sha(self):
         sha = scm.get_sha()
         if self.with_git:
-            self.assertEqual(sha, 'c3c8022')
+            self.assertEqual(sha, 'c4b972f')
         else:
             self.assertEqual(sha, 'unknown')
 
@@ -83,7 +83,7 @@ class TestScm(unittest.TestCase):
         if self.with_git:
             hexsha = head_commit_object.hexsha
             self.assertEqual(
-                hexsha, 'c3c8022de1513425aebbf4d98ea7b63f00a50da6')
+                hexsha, 'c4b972fe7c7fff04e4058c342e4144cdb6b9d811')
         else:
             self.assertIsNone(head_commit_object)
 
